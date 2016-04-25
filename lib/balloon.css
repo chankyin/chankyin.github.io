@@ -1,0 +1,33 @@
+.balloon{
+	padding: 5px;
+}
+.balloon-content{
+	border: ridge;
+	border-radius: 5px;
+	padding: 5px;
+}
+.balloon-pivot{
+	cursor: pointer;
+}
+.balloon-mouthpiece{
+	margin-left: 15px;
+	border-radius: 5px;
+	border: ridge;
+}
+.balloon-title-1{
+	font-weight: 900;
+	font-size: 32px;
+}
+.balloon-title-2{
+	font-weight: 800;
+	font-size: 28px;
+}
+.balloon-title-3{
+	font-weight: 700;
+	font-size: 24px;
+}
+.balloon-title-4{
+	font-weight: 600;
+	font-size: 20px;
+}
+
