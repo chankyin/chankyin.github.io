@@ -1,0 +1,10 @@
+This *is* the **first** `message`.
+This paragraph is not really worth itself, but we really want to see if it has multiple-line support.
+This could have been a simple `Hello world!` message, but the world is *too* tired of greeting every new software, so let's *not* do that.
+~~~ Tue, 26 Apr 2016 11:29:05 +0000
+
+And this is the second message.
+There is no reason to say "Hello world!" the second time you meet the world, especially when you didn't the first time, is there?
+Just in case the world feels lonely if every software thinks like this and doesn't say hello to it, hello, world.
+~~~ Tue, 26 Apr 2016 11:31:58 +0000
+

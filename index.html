@@ -3,10 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>chankyin by chankyin</title>
+    <title>Pseudorandomness</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
+	<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+	<script>
+		function ArchiveMessage(){
+			this.paragraphs = [];
+			this.date = null;
+		}
+		ArchiveMessage.prototype.append = function(line){
+			var p = $("<p></p>");
+			p.text(line);
+			var html = p.html();
+			html.replace(/\*\*([^\*]+)\*\*/g, "<b>$1</b>")
+				.replace(/\*([^\*]+)\*/g, "<b>$1</b>")
+				.replace(/`([^`]+)`/g, "<code>$1</code>");
+			this.paragraphs.push(p);
+		};
+		ArchiveMessage.prototype.publish = function(date){
+			var message = $("<div></div>");
+			message.addClass("message");
+			for(var i = 0; i < this.paragraphs.length; i++){
+				message.append(this.paragraphs[i]);
+			}
+			message.append("<p class='footer'>Signed: " + date + "</p>");
+			return message;
+		};
+		$(document).ready(function(){
+			$.get("data/messages.txt", {}, function(data){
+				var holder = $("#holder");
+				var lines = data.split("\n");
+				var currentMessage = null;
+				for(var i = 0; i < lines.length; i++){
+					if(currentMessage === null){
+						currentMessage = new ArchiveMessage();
+					}
+					if(lines[i].substring(0, 4) === "~~~ "){
+						currentMessage.publish(lines[i++].substring(4))
+							.appendTo(holder);
+					}
+					currentMessage.append(lines[i]);
+				}
+			});
+		});
+	</script>
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,15 +57,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>chankyin</h1>
-        <p>Dummy index page</p>
-
-
+        <h1>Pseudorandomness</h1>
+        <div id="holder"></div>
         <p class="view"><a href="https://github.com/chankyin">View My GitHub Profile</a></p>
-
       </header>
       <section>
-        <p>GitHub Pages Generator</p>
+        <p>An archive of <em>not-really</em>-random things I thought of</p>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
