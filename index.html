@@ -32,7 +32,7 @@
 			return message;
 		};
 		$(document).ready(function(){
-			$.get("data/messages.txt", {}, function(data){
+			$.get("https://chankyin.github.io/data/messages.txt", {}, function(data){
 				var holder = $("#holder");
 				var lines = data.split("\n");
 				var currentMessage = null;
