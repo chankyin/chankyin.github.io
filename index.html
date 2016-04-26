@@ -17,9 +17,10 @@
 			var p = $("<p></p>");
 			p.text(line);
 			var html = p.html();
-			html.replace(/\*\*([^\*]+)\*\*/g, "<b>$1</b>")
+			html = html.replace(/\*\*([^\*]+)\*\*/g, "<b>$1</b>")
 				.replace(/\*([^\*]+)\*/g, "<b>$1</b>")
 				.replace(/`([^`]+)`/g, "<code>$1</code>");
+			p.html(html);
 			this.paragraphs.push(p);
 		};
 		ArchiveMessage.prototype.publish = function(date){
@@ -62,7 +63,7 @@
         <p class="view"><a href="https://github.com/chankyin">View My GitHub Profile</a></p>
       </header>
       <section>
-        <p>An archive of <em>not-really</em>-<br>random things I thought of</p>
+        <p>An archive of <em>not-really</em>-random things I thought of</p>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
