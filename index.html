@@ -44,7 +44,7 @@
 					}
 					if(lines[i].substring(0, 4) === "~~~ "){
 						currentMessage.publish(lines[i++].substring(4))
-							.appendTo(holder);
+							.prependTo(holder);
 						currentMessage = null;
 						continue;
 					}
