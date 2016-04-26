@@ -26,6 +26,7 @@
 		ArchiveMessage.prototype.publish = function(date){
 			var message = $("<div></div>");
 			message.addClass("message");
+			message.prepend("<hr>");
 			for(var i = 0; i < this.paragraphs.length; i++){
 				message.append(this.paragraphs[i]);
 			}
