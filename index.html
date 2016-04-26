@@ -45,6 +45,7 @@
 						currentMessage.publish(lines[i++].substring(4))
 							.appendTo(holder);
 						currentMessage = null;
+						continue;
 					}
 					currentMessage.append(lines[i]);
 				}
